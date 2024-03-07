@@ -5,19 +5,31 @@
 }
 
 body {
+    min-height: 100vh;
     font-family: "Roboto", sans-serif;
     font-size: 1rem;
     display: flex;
     flex-direction: column;
 }
 
-/* highlight */
+/**************** Genaral Styles ****************/
+
+a {
+    text-decoration: none;
+    color: #f9faf8;
+}
+
+li {
+    list-style-type: none;
+}
+
+/**************** highlight ****************/
 
 .highlight {
     color: #0097FB;
 }
 
-/* Header */
+/**************** Header ****************/
 
 header,
 footer {
@@ -34,33 +46,64 @@ footer {
     gap: 30px;
 }
 
-nav {
-    display: flex;
-    flex: 1;
-}
+/**************** Navbar ****************/
 
-.logo {
-    margin-right: auto;
-    color: #f9faf8;
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.nav-links {
-    list-style-type: none;
+nav ul {
+    width: 100%;
     font-size: 18px;
     display: flex;
-    gap: 25px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #f9faf8;
+    gap: 30px;
 }
 
 .nav-links a:hover {
     color: #0097FB;
 }
+
+#logo {
+    margin-right: auto;
+    padding: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sidebar li {
+    width: 100%;
+    height: 50px;
+}
+
+.sidebar a {
+    height: 100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar a:hover {
+    color: #1f2937;
+    background-color: #fff;
+}
+
+.menu-button {
+    display: none;
+}
+
+/**************** Hero Content ****************/
 
 article {
     flex: 1;
@@ -111,7 +154,7 @@ article {
     object-fit: cover;
 }
 
-/* Main */
+/**************** Main ****************/
 
 main {
     display: flex;
@@ -121,8 +164,8 @@ main {
 }
 
 section {
-    height: 350px;
     padding: 32px;
+    flex: 1;
 }
 
 .intro {
@@ -139,10 +182,6 @@ section {
     font-weight: 900;
     color: #1f2937;
     margin-bottom: 30px;
-}
-
-.card {
-    width: 300px;
 }
 
 .card img {
@@ -165,12 +204,12 @@ section {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    line-height: 3.5rem;
+    line-height: 50px;
 
 }
 
 blockquote {
-    font-size: 36px;
+    font-size: 2rem;
     font-weight: 300;
     font-style: italic;
 }
@@ -187,7 +226,6 @@ blockquote {
 
 .cta-container {
     width: 70%;
-    height: 150px;
     background-color: #3882f6;
     color: white;
     padding: 32px;
@@ -218,7 +256,7 @@ blockquote {
 }
 
 
-/* Footer */
+/**************** Footer ****************/
 
 footer {
     color: #f9faf8;
@@ -227,4 +265,48 @@ footer {
     height: 50px;
     padding: 16px;
     text-align: center;
+}
+
+/**************** Media query ****************/
+
+@media(max-width: 800px) {
+    .hide-mobile {
+        display: none;
+    }
+
+    .menu-button {
+        display: block
+    }
+
+}
+
+@media(max-width: 500px) {
+    .sidebar {
+        width: 100%;
+    }
+
+    article {
+        display: block;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .quote-container {
+        text-align: center;
+    }
+
+    blockquote {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .cta-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
 }
